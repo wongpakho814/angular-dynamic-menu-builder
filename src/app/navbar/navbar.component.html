@@ -1,0 +1,53 @@
+<!-- Hamburder menu button -->
+<div class="hamburger-menu">
+  <div class="line line-1"></div>
+  <div class="line line-2"></div>
+  <div class="line line-3"></div>
+</div>
+<!-- End of amburder menu button -->
+
+<!-- Navbar -->
+<nav class="navbar center">
+  <ul class="nav-list center">
+    <li class="nav-list-item">
+      <a class="navbar-link" href="#">menu_1</a>
+    </li>
+    <div class="nav-dropdown-wrapper">
+      <ul class="nav-dropdown">
+        <li class="nav-dropdown-item">
+          <a href="#">menu_1_1</a>
+        </li>
+      </ul>
+    </div>
+  </ul>
+</nav>
+<!-- End of navbar -->
+
+<!-- Switch role button -->
+<section class="dropdown-wrapper">
+  <div class="dropdown" dropdown>
+    <button
+      id="switch-role-dropdown-btn"
+      dropdownToggle
+      class="btn btn-secondary switch-role dropdown-toggle"
+      type="button"
+      aria-controls="switch-role-dropdown"
+    >
+      Switch Roles
+    </button>
+    <div
+      id="switch-role-dropdown"
+      *dropdownMenu
+      class="dropdown-menu"
+      role="menu"
+      aria-labelledby="switch-role-dropdown-btn"
+    >
+      <a class="dropdown-item" role="menuitem" href="#" data-roleId="1">Switch to roleId 1</a>
+      <a class="dropdown-item" role="menuitem" href="#" data-roleId="2">Switch to roleId 2</a>
+      <a class="dropdown-item" role="menuitem" href="#" data-roleId="3">Switch to roleId 3</a>
+      <a class="dropdown-item" role="menuitem" href="#" data-roleId="4">Switch to roleId 4</a>
+      <a class="dropdown-item" role="menuitem" href="#" data-roleId="5">Switch to roleId 5</a>
+    </div>
+  </div>
+</section>
+<!-- End of switch role button -->
