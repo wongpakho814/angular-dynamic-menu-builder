@@ -1,27 +1,60 @@
-# AngularDynamicMenuBuilder
+# Angular Dynamic Menu Builder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+**Objective**: Create a single-page application (SPA) showcasing a dynamic horizontal menu bar.
 
-## Development server
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Dynamic Menu Generation](#dynamic-menu-generation)
+- [Menu Rendering Rules](#menu-rendering-rules)
+- [Instructions](#instructions)
+- [Technologies Used](#technologies-used)
+- [License](#license)
+
+## Requirements
+
+### Menu Structure
+
+The menu bar consists of two types of items:
+
+1. **Level 1 Menu Item**: Directly displayed on the menu bar.
+2. **Level 2 Menu Item**: A submenu under a Level 1 item, visible only when the associated Level 1 item is active.
+
+### Dynamic Menu Generation
+
+Menu items in the bar are dynamically rendered based on user permissions and system control.
+
+- `permissionList`: A list showing the permissions a logged-in user possesses.
+- `systemStatus`: An object detailing the status of each system control, indicating if a feature is enabled.
+
+### Menu Rendering Rules
+
+- Each Level 2 menu item is governed by both a system control and a permission to determine its visibility.
+- If the system control is `false`, the corresponding Level 2 item won't be visible, regardless of permission.
+- If the system control is `true`, the Level 2 item will show if the user has the necessary permission.
+- A missing system control defaults to `false`.
+- If none of the Level 2 items are enabled, the parent Level 1 item should also not be visible.
+
+## Usage 
+
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+### Deployed
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You can access the deployed application at https://wongpakho814.github.io/angular-dynamic-menu-builder/
 
-## Running end-to-end tests
+## Technologies Used
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Angular
+= CSS
 
-## Further help
+## License
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
