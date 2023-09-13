@@ -3,14 +3,14 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
   menuDict = {
-    menu_1: ["menu_1_1", "menu_1_2"], 
+    menu_1: ["menu_1_1", "menu_1_2"],
     menu_2: ["menu_2_1", "menu_2_2", "menu_2_3", "menu_2_4"],
     menu_3: ["menu_3_1", "menu_3_2"],
-    menu_4: ["menu_4_1", "menu_4_2", "menu_4_3"], 
+    menu_4: ["menu_4_1", "menu_4_2", "menu_4_3"],
     menu_5: ["menu_5_1", "menu_5_2", "menu_5_3"],
     menu_6: ["menu_6_1", "menu_6_2"],
     menu_7: ["menu_7_1", "menu_7_2", "menu_7_3"]
@@ -51,7 +51,4 @@ export class NavbarComponent {
     SYSTEM_CONTROL_15: ["menu_5_2"],
     SYSTEM_CONTROL_16: ["menu_5_3"],
   };
-
-  roleDropdown() {
-  }
 }

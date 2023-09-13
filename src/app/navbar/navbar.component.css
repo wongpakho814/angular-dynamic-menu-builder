@@ -48,6 +48,7 @@
   background-color: #202a44;
   box-shadow: 0.2rem 0.2rem 0.5rem #555;
   position: absolute;
+  justify-content: center;
   z-index: 300;
 }
 
@@ -169,7 +170,7 @@
   padding: 0.8rem;
   background-color: #202a44;
   color: #eee;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   transition: all 0.3s;
