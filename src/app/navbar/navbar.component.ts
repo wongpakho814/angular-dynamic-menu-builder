@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavMenuService } from '../nav-menu.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,16 +6,11 @@ import { NavMenuService } from '../nav-menu.service';
   styleUrls: ['./navbar.component.css', '../app.component.css'],
 })
 export class NavbarComponent {
-  constructor(private navMenuService: NavMenuService) { }
-  
-  isMenuCollapsed = true;
+  isMenuCollapsed: boolean = true;
   onIsMenuCollapsedUpdated(updatedIsMenuCollapsed: boolean) {
     // Handle the updated isMenuCollapsed variable from the child component
     this.isMenuCollapsed = updatedIsMenuCollapsed;
   }
-
-  permissionList = [];
-  systemStatusList = [];
 
   menuDict = {
     menu_1: ["menu_1_1", "menu_1_2"],
@@ -63,24 +57,7 @@ export class NavbarComponent {
     SYSTEM_CONTROL_15: ["menu_5_2"],
     SYSTEM_CONTROL_16: ["menu_5_3"],
   };
-
-  async fetchJSON(roleId: number) {
-    try {
-      const response = await this.navMenuService.fetchData(roleId);
-      this.permissionList = response.permissionList;
-      this.systemStatusList = response.systemStatus;
-
-      // Process the data and update menuToBeRendered and other data accordingly
-      // this.processData(response.systemStatus);
-      // this.renderMenu();
-      console.log(response, this.permissionList, this.systemStatusList);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  ngOnInit() {
-    // Default to roleId = 1
-    this.fetchJSON(1);
-  }
+  
+  // Menu which its corresponding System Control is null and only Permission is required
+  menuWithoutSystemControl = ["menu_3_1", "menu_4_2", "menu_4_3"]
 }

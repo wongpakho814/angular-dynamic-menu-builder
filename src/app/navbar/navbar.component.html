@@ -15,7 +15,17 @@
       class="collapse navbar-collapse justify-content-center"
     >
       <ul class="navbar-nav">
-        <div class="app-menu-wrapper" app-menu [isMenuCollapsed]="isMenuCollapsed" (isMenuCollapsedUpdated)="onIsMenuCollapsedUpdated($event)"></div>
+        <div 
+          app-menu
+          class="app-menu-wrapper"  
+          [menuDict]="menuDict"
+          [permissionDict]="permissionDict"
+          [systemStatusDict]="systemStatusDict"
+          [menuWithoutSystemControl]="menuWithoutSystemControl"
+          [isMenuCollapsed]="isMenuCollapsed" 
+          (isMenuCollapsedUpdated)="onIsMenuCollapsedUpdated($event)"
+        >
+        </div>
       </ul>
     </div>
   </div>
