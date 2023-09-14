@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MenuComponent } from './menu/menu.component';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css', '../app.component.css'],
+  styleUrls: ['./navbar.component.css', '../app.component.css']
 })
 export class NavbarComponent {
   isMenuCollapsed: boolean = true;
@@ -60,4 +61,12 @@ export class NavbarComponent {
   
   // Menu which its corresponding System Control is null and only Permission is required
   menuWithoutSystemControl = ["menu_3_1", "menu_4_2", "menu_4_3"]
+
+  // Call the fetchJSON() function in MenuComponent on switch role button click
+  @ViewChild(MenuComponent, { static: false }) menuComponent: MenuComponent;
+
+  callfetchJSON(roleId: number) {
+    // Call the fetchJSON() from MenuComponent (child component)
+    this.menuComponent.fetchJSON(roleId);
+  }
 }

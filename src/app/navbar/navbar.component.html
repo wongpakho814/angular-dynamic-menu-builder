@@ -1,26 +1,17 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <button
-      class="navbar-toggler"
-      type="button"
-      (click)="isMenuCollapsed = !isMenuCollapsed"
-    >
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
       &#9776;
     </button>
-    <div
-      ngbNav
-      #nav="ngbNav"
-      [ngbCollapse]="isMenuCollapsed"
-      class="collapse navbar-collapse justify-content-center"
-    >
+    <div ngbNav #nav="ngbNav" [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse justify-content-center">
       <ul class="navbar-nav">
         <div 
-          app-menu
-          class="app-menu-wrapper"  
-          [menuDict]="menuDict"
+          app-menu 
+          class="app-menu-wrapper" 
+          [menuDict]="menuDict" 
           [permissionDict]="permissionDict"
-          [systemStatusDict]="systemStatusDict"
+          [systemStatusDict]="systemStatusDict" 
           [menuWithoutSystemControl]="menuWithoutSystemControl"
           [isMenuCollapsed]="isMenuCollapsed" 
           (isMenuCollapsedUpdated)="onIsMenuCollapsedUpdated($event)"
@@ -36,34 +27,15 @@
 <!-- This is not seperated into another component since it is a feature for testing only -->
 <section class="dropdown-wrapper">
   <div ngbDropdown placement="bottom-start" class="dropdown d-inline-block">
-    <button
-      id="switch-role-dropdown-btn"
-      class="btn btn-secondary switch-role"
-      type="button"
-      ngbDropdownToggle
-    >
+    <button id="switch-role-dropdown-btn" class="btn btn-secondary switch-role" type="button" ngbDropdownToggle>
       Switch Roles
     </button>
-    <div
-      class="dropdown-menu"
-      aria-labelledby="switch-role-dropdown-btn"
-      ngbDropdownMenu
-    >
-      <a class="dropdown-item" href="#" data-roleId="1" ngbDropdownItem
-        >Switch to roleId 1</a
-      >
-      <a class="dropdown-item" href="#" data-roleId="2" ngbDropdownItem
-        >Switch to roleId 2</a
-      >
-      <a class="dropdown-item" href="#" data-roleId="3" ngbDropdownItem
-        >Switch to roleId 3</a
-      >
-      <a class="dropdown-item" href="#" data-roleId="4" ngbDropdownItem
-        >Switch to roleId 4</a
-      >
-      <a class="dropdown-item" href="#" data-roleId="5" ngbDropdownItem
-        >Switch to roleId 5</a
-      >
+    <div class="dropdown-menu" aria-labelledby="switch-role-dropdown-btn" ngbDropdownMenu>
+      <a class="dropdown-item" href="#" (click)="callfetchJSON(1)" ngbDropdownItem>Switch to roleId 1</a>
+      <a class="dropdown-item" href="#" (click)="callfetchJSON(2)" ngbDropdownItem>Switch to roleId 2</a>
+      <a class="dropdown-item" href="#" (click)="callfetchJSON(3)" ngbDropdownItem>Switch to roleId 3</a>
+      <a class="dropdown-item" href="#" (click)="callfetchJSON(4)" ngbDropdownItem>Switch to roleId 4</a>
+      <a class="dropdown-item" href="#" (click)="callfetchJSON(5)" ngbDropdownItem>Switch to roleId 5</a>
     </div>
   </div>
 </section>

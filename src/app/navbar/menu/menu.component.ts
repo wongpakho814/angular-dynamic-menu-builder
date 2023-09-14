@@ -24,7 +24,9 @@ export class MenuComponent {
   menuToBeRendered: { [key: string]: string[]; } = {};
 
   async fetchJSON(roleId: number) {
+    // Reset the menu currently rendered 
     this.menuToBeRendered = {};
+
     let permissionList: string[] = [];
     let systemStatusList: string[] = [];
 
@@ -101,7 +103,7 @@ export class MenuComponent {
   }
 
   ngOnInit() {
-    // Default to roleId = 1
+    // Default role id to 1
     this.fetchJSON(1);
   }
 }
