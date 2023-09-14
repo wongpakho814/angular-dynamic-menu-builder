@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './navbar/menu/menu.component';
+import { StoreModule } from '@ngrx/store';
+import { roleReducer } from './store/role.reducers';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { MenuComponent } from './navbar/menu/menu.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({roleId: roleReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

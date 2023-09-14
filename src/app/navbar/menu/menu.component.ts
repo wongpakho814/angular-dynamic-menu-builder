@@ -1,5 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NavMenuService } from '../../nav-menu.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
+import { selectRole } from 'src/app/store/role.selectors';
 
 @Component({
   selector: 'div[app-menu]',
@@ -7,7 +10,9 @@ import { NavMenuService } from '../../nav-menu.service';
   styleUrls: ['./menu.component.css', '../navbar.component.css']
 })
 export class MenuComponent {
-  constructor(private navMenuService: NavMenuService) { }
+  constructor(private navMenuService: NavMenuService, private store: Store<AppState>) { }
+
+  roleId: number;
 
   @Input() menuDict: { [key: string]: string[]; };
   @Input() permissionDict: { [key: string]: string[]; };
@@ -103,7 +108,11 @@ export class MenuComponent {
   }
 
   ngOnInit() {
-    // Default role id to 1
-    this.fetchJSON(1);
+    // Get default role id (1) and render it on init
+    this.store.select(selectRole).subscribe(state => {
+      this.roleId = state;
+    });
+
+    this.fetchJSON(Object.values(this.roleId)[0]);
   }
 }

@@ -1,5 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { MenuComponent } from './menu/menu.component';
+import { Store } from '@ngrx/store';
+import { switchRole } from '../store/role.actions';
+import { AppState } from '../store/app.state';
+import { selectRole } from 'src/app/store/role.selectors';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +11,10 @@ import { MenuComponent } from './menu/menu.component';
   styleUrls: ['./navbar.component.css', '../app.component.css']
 })
 export class NavbarComponent {
+  constructor(private store: Store<AppState>) {}
+
+  roleId: number;
+
   isMenuCollapsed: boolean = true;
   onIsMenuCollapsedUpdated(updatedIsMenuCollapsed: boolean) {
     // Handle the updated isMenuCollapsed variable from the child component
@@ -66,7 +74,15 @@ export class NavbarComponent {
   @ViewChild(MenuComponent, { static: false }) menuComponent: MenuComponent;
 
   callfetchJSON(roleId: number) {
-    // Call the fetchJSON() from MenuComponent (child component)
-    this.menuComponent.fetchJSON(roleId);
+    // Update the role id state according to which role id is clicked
+    this.store.dispatch(switchRole({ newRoleId: roleId }));
+
+    // Get the updated role id (state)
+    this.store.select(selectRole).subscribe(state => {
+      this.roleId = state;
+    });
+
+    // Call the fetchJSON() from MenuComponent (child component) with the new role id (state)
+    this.menuComponent.fetchJSON(this.roleId);
   }
 }
