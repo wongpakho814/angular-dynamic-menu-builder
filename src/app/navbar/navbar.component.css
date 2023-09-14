@@ -95,6 +95,10 @@
   color: #fff !important;
 }
 
+.app-menu-wrapper {
+  display: flex;
+}
+
 @keyframes fade-in {
   from {
     transform: translateY(-1rem);
@@ -137,6 +141,7 @@
 .dropdown-menu {
   background-color: #202a44;
   box-shadow: 0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.2);
+  flex-direction: column;
 }
 
 .dropdown-item {
@@ -155,6 +160,10 @@
 @media screen and (max-width: 1000px) {
   .navbar-collapse {
     padding-bottom: 1rem;
+  }
+
+  .app-menu-wrapper {
+    flex-direction: column;
   }
 
   .dropdown-menu {

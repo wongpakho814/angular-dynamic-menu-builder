@@ -4,12 +4,17 @@ import { NavMenuService } from '../nav-menu.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  styleUrls: ['./navbar.component.css', '../app.component.css'],
 })
 export class NavbarComponent {
   constructor(private navMenuService: NavMenuService) { }
-
+  
   isMenuCollapsed = true;
+  onIsMenuCollapsedUpdated(updatedIsMenuCollapsed: boolean) {
+    // Handle the updated isMenuCollapsed variable from the child component
+    this.isMenuCollapsed = updatedIsMenuCollapsed;
+  }
+
   permissionList = [];
   systemStatusList = [];
 
