@@ -24,6 +24,7 @@ export class MenuComponent {
   menuToBeRendered: { [key: string]: string[]; } = {};
 
   async fetchJSON(roleId: number) {
+    this.menuToBeRendered = {};
     let permissionList: string[] = [];
     let systemStatusList: string[] = [];
 

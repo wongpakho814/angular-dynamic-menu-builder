@@ -1,22 +1,16 @@
-<!-- <li ngbDropdown class="nav-item">
-  <button type="button" class="nav-link" ngbDropdownToggle>menu_1</button>
+<ng-container *ngFor="let menu of menuToBeRendered | keyvalue;">
+  <li ngbDropdown class="nav-item">
+  <button type="button" class="nav-link" ngbDropdownToggle>{{menu.key}}</button>
   <div class="nav-dropdown center" ngbDropdownMenu>
-    <a
-      class="nav-dropdown-item"
-      (click)="updateIsMenuCollapsed()"
-      ngbDropdownItem
-    >
-      menu_1_1
-    </a>
-    <a
-      class="nav-dropdown-item"
-      (click)="updateIsMenuCollapsed()"
-      ngbDropdownItem
-    >
-      menu_1_2
-    </a>
+    <ng-container *ngFor="let level2Menu of menu.value;">
+      <a
+        class="nav-dropdown-item"
+        (click)="updateIsMenuCollapsed()"
+        ngbDropdownItem
+      >
+        {{level2Menu}}
+      </a>
+    </ng-container>
   </div>
-</li> -->
-<!-- <ng-container *ngFor="let menu of menuToBeRendered;">
-
-</ng-container> -->
+</li>
+</ng-container>
