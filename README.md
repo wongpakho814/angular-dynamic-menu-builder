@@ -53,7 +53,7 @@ You can access the deployed application at https://dynamic-menu-builder.web.app/
 ## Technologies Used
 
 - Angular
-= CSS
+- CSS
 
 ## License
 
