@@ -48,12 +48,12 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ### Deployed
 
-You can access the deployed application at https://wongpakho814.github.io/angular-dynamic-menu-builder/
+You can access the deployed application at https://dynamic-menu-builder.web.app/
 
 ## Technologies Used
 
 - Angular
-= CSS
+- CSS
 
 ## License
 
