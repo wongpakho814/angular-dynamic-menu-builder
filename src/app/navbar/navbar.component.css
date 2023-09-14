@@ -1,0 +1,165 @@
+/* Navbar */
+.navbar {
+  width: 100%;
+  height: 4rem;
+  background-color: #202a44;
+  box-shadow: 0.2rem 0.2rem 0.5rem #555;
+  position: absolute;
+  justify-content: center;
+  z-index: 300;
+}
+
+.navbar > .container-fluid {
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.navbar-toggler {
+  color: #fff;
+  margin-right: 1rem;
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-collapse {
+  background-color: #202a44;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #917153;
+  margin: 0 3rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.change.nav-link {
+  color: #fff;
+}
+
+.nav-link:hover,
+.nav-dropdown-item a:hover {
+  color: #fff;
+  border: none;
+}
+
+.nav-link::before {
+  content: "";
+  width: 0;
+  height: 0.2rem;
+  background-color: #fff;
+  position: absolute;
+  left: -15%;
+  bottom: -0.3rem;
+  transition: width 0.2s;
+}
+
+.change.nav-link::before {
+  width: 130%;
+}
+
+.nav-link:hover::before {
+  width: 130%;
+}
+
+.nav-link::after {
+  all: unset;
+}
+
+.nav-dropdown {
+  width: 100%;
+  transition: transform 0.3s;
+  animation: fade-in 0.3s forwards;
+}
+
+.nav-dropdown-item {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  color: var(--text, #b8994b) !important;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-dropdown-item:hover {
+  color: #fff !important;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(-1rem);
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+/* End of navbar */
+
+/* Switch role button */
+.dropdown-wrapper {
+  position: relative;
+  width: 100%;
+  top: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.switch-role {
+  padding: 0.8rem;
+  background-color: #202a44;
+  color: #eee;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: all 0.3s;
+}
+
+.switch-role:hover {
+  color: #202a44;
+  background-color: #fff;
+}
+
+.dropdown-menu {
+  background-color: #202a44;
+  box-shadow: 0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+  font-size: 1rem;
+  color: #fff;
+  padding: 1.2rem 1.6rem;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  background-color: #314478;
+}
+/* End of switch role button */
+
+/* Responsive */
+@media screen and (max-width: 1000px) {
+  .navbar-collapse {
+    padding-bottom: 1rem;
+  }
+
+  .dropdown-menu {
+    box-shadow: none;
+    border: none;
+  }
+}
+/* End of responsive */

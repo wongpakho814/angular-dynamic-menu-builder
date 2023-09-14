@@ -1,0 +1,96 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="isMenuCollapsed = !isMenuCollapsed"
+    >
+      &#9776;
+    </button>
+    <div
+      ngbNav
+      #nav="ngbNav"
+      [ngbCollapse]="isMenuCollapsed"
+      class="collapse navbar-collapse justify-content-center"
+    >
+      <ul class="navbar-nav">
+        <li ngbDropdown class="nav-item">
+          <button type="button" class="nav-link" ngbDropdownToggle>
+            menu_1
+          </button>
+          <div class="nav-dropdown center" ngbDropdownMenu>
+            <a
+              class="nav-dropdown-item"
+              (click)="isMenuCollapsed = true"
+              ngbDropdownItem
+              >menu_1_1</a
+            >
+            <a
+              class="nav-dropdown-item"
+              (click)="isMenuCollapsed = true"
+              ngbDropdownItem
+              >menu_1_2</a
+            >
+          </div>
+        </li>
+        <li ngbDropdown class="nav-item">
+          <button type="button" class="nav-link" ngbDropdownToggle>
+            menu_2
+          </button>
+          <div class="nav-dropdown center" ngbDropdownMenu>
+            <a
+              class="nav-dropdown-item"
+              (click)="isMenuCollapsed = true"
+              ngbDropdownItem
+              >menu_2_1</a
+            >
+            <a
+              class="nav-dropdown-item"
+              (click)="isMenuCollapsed = true"
+              ngbDropdownItem
+              >menu_2_2</a
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- End of navbar -->
+
+<!-- Switch role button -->
+<section class="dropdown-wrapper">
+  <div ngbDropdown placement="bottom-start" class="dropdown d-inline-block">
+    <button
+      id="switch-role-dropdown-btn"
+      class="btn btn-secondary switch-role"
+      type="button"
+      ngbDropdownToggle
+    >
+      Switch Roles
+    </button>
+    <div
+      class="dropdown-menu"
+      aria-labelledby="switch-role-dropdown-btn"
+      ngbDropdownMenu
+    >
+      <a class="dropdown-item" href="#" data-roleId="1" ngbDropdownItem
+        >Switch to roleId 1</a
+      >
+      <a class="dropdown-item" href="#" data-roleId="2" ngbDropdownItem
+        >Switch to roleId 2</a
+      >
+      <a class="dropdown-item" href="#" data-roleId="3" ngbDropdownItem
+        >Switch to roleId 3</a
+      >
+      <a class="dropdown-item" href="#" data-roleId="4" ngbDropdownItem
+        >Switch to roleId 4</a
+      >
+      <a class="dropdown-item" href="#" data-roleId="5" ngbDropdownItem
+        >Switch to roleId 5</a
+      >
+    </div>
+  </div>
+</section>
+<!-- End of switch role button -->

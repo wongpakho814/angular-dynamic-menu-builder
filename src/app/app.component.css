@@ -1,0 +1,40 @@
+/* Reset and common styles */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-weight: 400;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: unset; 
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+}
+
+.show {
+  display: flex !important;
+}
+
+.non-clickable {
+  pointer-events: none;
+}
+/* End of reset and common styles */
