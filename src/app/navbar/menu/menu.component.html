@@ -1,0 +1,16 @@
+<ng-container *ngFor="let menu of menuToBeRendered | keyvalue;">
+  <li ngbDropdown class="nav-item">
+  <button type="button" class="nav-link" ngbDropdownToggle>{{menu.key}}</button>
+  <div class="nav-dropdown center" ngbDropdownMenu>
+    <ng-container *ngFor="let level2Menu of menu.value;">
+      <a
+        class="nav-dropdown-item"
+        (click)="updateIsMenuCollapsed()"
+        ngbDropdownItem
+      >
+        {{level2Menu}}
+      </a>
+    </ng-container>
+  </div>
+</li>
+</ng-container>

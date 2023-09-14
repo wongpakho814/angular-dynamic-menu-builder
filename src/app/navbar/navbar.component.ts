@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
-import { NavMenuService } from '../nav-menu.service';
+import { Component, ViewChild } from '@angular/core';
+import { MenuComponent } from './menu/menu.component';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  styleUrls: ['./navbar.component.css', '../app.component.css']
 })
 export class NavbarComponent {
-  constructor(private navMenuService: NavMenuService) { }
-
-  isMenuCollapsed = true;
-  permissionList = [];
-  systemStatusList = [];
+  isMenuCollapsed: boolean = true;
+  onIsMenuCollapsedUpdated(updatedIsMenuCollapsed: boolean) {
+    // Handle the updated isMenuCollapsed variable from the child component
+    this.isMenuCollapsed = updatedIsMenuCollapsed;
+  }
 
   menuDict = {
     menu_1: ["menu_1_1", "menu_1_2"],
@@ -58,24 +58,15 @@ export class NavbarComponent {
     SYSTEM_CONTROL_15: ["menu_5_2"],
     SYSTEM_CONTROL_16: ["menu_5_3"],
   };
+  
+  // Menu which its corresponding System Control is null and only Permission is required
+  menuWithoutSystemControl = ["menu_3_1", "menu_4_2", "menu_4_3"]
 
-  async fetchJSON(roleId: number) {
-    try {
-      const response = await this.navMenuService.fetchData(roleId);
-      this.permissionList = response.permissionList;
-      this.systemStatusList = response.systemStatus;
+  // Call the fetchJSON() function in MenuComponent on switch role button click
+  @ViewChild(MenuComponent, { static: false }) menuComponent: MenuComponent;
 
-      // Process the data and update menuToBeRendered and other data accordingly
-      // this.processData(response.systemStatus);
-      // this.renderMenu();
-      console.log(response, this.permissionList, this.systemStatusList);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  ngOnInit() {
-    // Default to roleId = 1
-    this.fetchJSON(1);
+  callfetchJSON(roleId: number) {
+    // Call the fetchJSON() from MenuComponent (child component)
+    this.menuComponent.fetchJSON(roleId);
   }
 }
